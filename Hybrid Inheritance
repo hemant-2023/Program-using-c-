@@ -1,0 +1,71 @@
+#include<iostream>
+using namespace std;
+class Student
+{
+
+        int roll;
+        public:
+                Student()
+                {
+                        cout<<"Enter Roll No :";
+                        cin>>roll;
+                }
+                void showrollno()
+                {
+                        cout<<roll;
+
+                }
+};
+
+class Test : public Student // Single Inheritance 
+{
+        protected:int m1,m2;
+        public:
+                Test()
+                {
+                        cout<<"Enter mark for 2 subjects";
+                        cin>>m1>>m2;
+                }
+                void showmark()
+                {
+                        cout<<m1<<"\t"<<m2;
+                }
+};
+
+class Sports 
+{
+        protected:int sportsmark;
+        public:
+                Sports()
+                {
+                        cout<<"Enter the sports mark";
+                        cin>>sportsmark; 
+                }
+                void showsportsmark()
+	    {
+                        cout<<sportsmark;
+                }
+
+};
+class Marklist : public Test,public Sports
+{
+        int total;
+        public:
+                void display()
+                {       
+                        total=m1+m2+sportsmark;
+                        cout<<"Student Details \n";
+                        cout<<"Roll No :";
+                        showrollno();
+                        cout<<"\n mark obtained for 2 subjects:";
+                        showmark();
+                        cout<<"\n Mark obtained for sports";
+                        showsportsmark();
+                        cout<<"\n Total Marks"<<total;
+                }
+};
+int main()
+{
+    Marklist obj;
+    obj.display();
+}
